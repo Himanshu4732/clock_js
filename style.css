@@ -1,0 +1,157 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#main {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(2, 2, 37);
+  
+}
+
+.main_cont{
+  padding: 10px 10px;
+  position: relative;
+
+}
+
+.clock_cont {
+  padding: 10px 15px;
+  box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.667);
+  width: 500px;
+  height: 150px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 40px;
+  border: 2px solid rgba(89, 89, 89, 0.422);
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: all 0.7s;
+  backdrop-filter: blur(20px);
+  
+}
+
+.main_cont:hover  .clock_cont{
+ transform:  perspective(900px) translateY(-5%) rotateX(45deg) ;
+  box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+ opacity: 0.7;
+}
+
+
+
+.clock_cont > span {
+    font-size: 6dvw;
+ padding: 0px 10px;
+text-shadow: 5px 5px 10px #000 ;
+color: white;}
+
+@keyframes hovering {
+  to{transform: translateY(-15px);}
+}
+
+
+/* clock picture with css */
+.clock_img{
+
+display: flex;
+justify-content: center;
+
+align-items: center;
+position: absolute;
+
+top: -10%;
+left: 50%;
+transform: translate(-50%,-50%);
+z-index: 50;
+opacity: 0;
+transition: all 0.7s;
+}
+
+.main_cont:hover .clock_img {
+  opacity: 1;
+ top: -70%;
+}
+
+
+
+
+
+.clock_out{
+  position: relative;
+  border: 2px solid white;
+  height: 350px;
+  width: 350px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 6px 5px #fff6;
+  /* animation: hovering 0.7s infinite linear alternate; */
+
+}
+
+.clock_num {
+  position: absolute;
+  color: white;
+  inset: 11px;
+  font-weight: 800;
+  text-align: center;
+  transform: rotate(calc(30deg * var(--v)));
+ 
+}
+
+.clock_num b{
+  display: inline-block;
+  transform: rotate(calc(-30deg * var(--v)));
+}
+
+.clock_center{
+  height: 15px;
+  width: 14px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 99;
+}
+
+.clock_out div{
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  
+}
+
+.hour_hand{
+  height: 95px;
+  width: 12px;
+  background-color: #fff;
+  border-radius: 10px;
+  position: absolute;
+  
+  transform-origin:bottom;
+}
+.min_hand{
+  height: 142px;
+  width: 8px;
+  background-color: #3a3131;
+  border-radius: 10px;
+  position: absolute;
+  
+  transform-origin:bottom;
+}
+.sec_hand{
+  height: 142px;
+  width: 2px;
+  background-color: #ff0000;
+  border-radius: 10px;
+  position: absolute;
+  
+  transform-origin:bottom;
+ transition: 0.3s cubic-bezier(0.4, 2.1, 0.5, 0.7);
+}
